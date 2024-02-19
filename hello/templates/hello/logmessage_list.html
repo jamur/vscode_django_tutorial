@@ -1,0 +1,20 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+  Messages
+{% endblock %}
+{% block content %}
+  <h1>Message List</h1>
+  {% if logmessage_list %}
+    <ul>
+      {% for message in logmessage_list %}
+      <li>
+        <a href="{{ message.get_absolute_url }}">{{ message.message }}</a>
+        ({{message.log_date}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no messages.</p>
+  {% endif %}
+{% endblock %}
+
